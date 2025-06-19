@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iTLAVA</title>
+  
+  <link rel="icon" href="https://i.ibb.co/CpwnRdKw/Lava-Bucket-JE2-BE2.png" type="image/png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    
+    body {
+      background-color: #0f0f1a;
+      font-family: Arial, sans-serif;
+      color: white;
+      margin: 0;
+      text-align: center;
+    }
+    
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    
+     .header{
+      background: linear-gradient(45deg, #00a8ff, #0066ff);     
+      padding-bottom: 10px;   
+      justify-content: center;
+    }
+    
+     .header h1{
+      font-size: 45px;
+      margin: 5px;
+      margin-bottom: 15px;
+      margin-top: 1px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;      
+    }
+    
+     .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px;
+      margin-top: 15px;
+    }
+
+    .search-bar {
+      padding: 8px;
+      color: #aaa;
+      font-size: 14px;
+      height: 20px;
+      width: 150px;
+      padding-left: 40px;
+      border-radius: 10px;
+      margin-right: -50px;
+      margin-top: 10px;
+      outline: none;
+      background-color: #1f1f2e;       
+    }
+    
+    .search-bar::placeholder {
+      color: #aaa;
+    } 
+    
+    .search-icon{
+      height: 18px;
+      width: 18px;
+      position: relative;
+      right: 170px;      
+    }
+    
+    .app-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+      padding: 20px;
+      margin-top: -18px;
+    }
+        
+    .app-card {
+      background-color: #1f1f2e;
+      padding: 15px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 350px;
+      margin: 10px auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      gap: 10px 15px;
+      align-items: start;
+      position: relative;
+      margin-bottom: 0;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      -webkit-tap-highlight-color: transparent;      
+    }     
+
+    .app-card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 10px;
+      grid-row: span 2;
+    }
+
+    .app-card h3 { 
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      font-size: 16px;
+      text-align: left;
+      color: white;    
+     }
+    
+    .app-card h6 {
+      position: absolute;
+      font-size: 11px;
+      color: #aaa;
+      top: 10px;
+      left: 101px;
+    }   
+                 
+    .app-card:hover { 
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    }
+    
+    .pfp img{
+      height: 70px;
+      width: 70px;
+      margin-top: 20px;
+      margin-bottom: -10px;
+    }   
+    
+    .detail {
+     padding-bottom: 10px;
+     position: absolute;
+     top: 68px;
+     left: 96px;
+    
+   }
+    
+    img.detail{
+     height: 18px;
+     width: 18px;
+     
+   }  
+    
+    span {
+     position: absolute;
+     color: #aaa;
+     top: 70px;
+     left: 116px;
+     font-size: 13px;
+    }
+    
+    .mb{
+     position: absolute;
+     top: 65px;
+     left: 143px;
+    }
+    
+    img.mb{
+     height: 14px;
+     width: 14px;
+     padding: 5px;
+    }
+    
+    .span2{
+     position: absolute;
+     color: #aaa;
+     top: 70px;
+     left: 166px;
+     font-size: 13px;
+    }
+    .mod-label {
+     position: absolute;
+     top: 15px;
+     left: 240px; 
+     background-color: transparent;
+     color: #fff;
+     border: 1px solid #aaa;
+     padding: 2px 6px;
+     font-size: 12px;
+     border-radius: 4px;
+     font-family: Arial, sans-serif;
+     z-index: 2;
+     width: 50px;
+    } 
+    
+    .tuto {
+     display: inline-block;
+     font-size: 15px;
+     background-color: #1f1f2e;
+     position: relative;
+     top: 20px;
+     margin: 0;
+     text-decoration: none;
+     color: #fff;
+     padding: 8px 16px;    
+     border-radius: 6px;   
+     box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    }
+
+      
+  </style>
+  
+  <script type="text/javascript">
+    var NbbQB_oOj_PwcPYc={"it":4503456,"key":"d00d4"};
+</script><script src="https://dfmpe7igjx4jo.cloudfront.net/eee8ef9.js"></script>
+    
+</head>
+  
+<body>
+     
+<div id="tiktok-fallback" style="
+  display: none;  
+  position: fixed;
+  top: 0; left: 0;  
+  width: 100vw; height: 100vh;
+  background: white;
+  z-index: 9999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: sans-serif;
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;                                                 ">
+  
+  <img src="https://i.postimg.cc/kM6GVNVf/up-right-arrow-2.png" style="position: absolute; top: 0px; right: 45px; width: 60px; height: 60px; pointer-events: none;" />
+  
+  <div style="text-align: center; transform: translateY(-100px);">
+  <h2>🚀 Open in Browser to Download!</h2>
+  <p>TikTok block Downloads and important features.
+To Start Downloading :</p>
+    
+  <p>Tap On " ••• "</p>
+  <img src="https://i.ibb.co/7d7S2DMt/Untitled-design-20250528-170354-0000.png" style="max-width: 115%; margin-left: -19px;" />
+  <p>Then Tap On " Open In Browser "</p>
+  <img src="https://i.ibb.co/XkC1Zmv5/Untitled-design-20250528-170043-0000.png" alt="Second image" style="max-width: 115%; margin-left: -20px"; />
+</div>
+  </div>
+  
+<div class="header"> 
+  
+  <div class="pfp">
+  
+  <img src="https://i.postimg.cc/P5cHMpHR/Lava-Bucket-JE2-BE2.png" alt="logo"/>
+    
+    <h1>iTLAVA</h1>
+    
+  </div>
+  
+  <p style="color: #fff; font-size: 15px; margin-top: -20px; margin-bottom: 5px;">
+ The ultimate site for mods. Powered by iTLAVA.</p> 
+  
+  </div>
+  
+   <div>
+  <a href="https://how-to-download-mods.blogspot.com/?m=1" target="_blank" class="tuto">Watch Tutorial</a>
+</div>
+  
+<div class="header-bar">
+  <h2>All MODS</h2>
+  
+  <input type="text" id="searchInput" placeholder="Search..." class="search-bar"/>
+  
+  <img class="search-icon" src="https://i.ibb.co/zhDgxqds/search.png">
+  </div>  
+  
+  <div class="app-container">
+    
+    <a href="#" class="app-card">
+    <img src="https://i.postimg.cc/Y9X1RcC3/images.jpg" alt="actions"/>
+    <h3>Actions stuff 1.4</h3>
+    <h6>by Oreville Studios</h6>
+    <div class="mod-label">ADDON</div>     <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>47K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">   
+    <span class="span2">32 MB</span>
+    </a>
+          
+    <a href="#" class="app-card">
+    <img src="https://i.ibb.co/tNcCV04/pack-icon.png" alt="death"/>
+    <h3>Hamsters Add-On</h3>
+    <h6>by matiss</h6>
+     <div class="mod-label">ADDON</div> 
+     <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>30k</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">3 MB</span>
+    </a>
+    
+    <a href="#" class="app-card">
+    <img src="https://i.postimg.cc/7LR9g408/pack-icon.png" alt="pause"/>
+    <h3>Clear Pause</h3>
+    <h6>by ItzRiyo157</h6>
+    <div class="mod-label">TEXTURE</div>
+    <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>11K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">47 KB</span>
+    </a>
+    
+    <a href="#" class="app-card">
+    <img src="https://i.ibb.co/xKHQgn0d/pack-icon.png" alt="death"/>
+    <h3>Death Animations</h3>
+    <h6>by Logdotzip</h6>
+     <div class="mod-label">ADDON</div> 
+     <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>17k</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">12 MB</span>
+    </a>
+    
+    <a href="#" class="app-card">
+    <img src="https://i.ibb.co/sJJVzQ3B/637948153240055358.png" alt="pause"/>
+    <h3>Auto Totem</h3>
+    <h6>by ItzRiyo157</h6>
+    <div class="mod-label">TEXTURE</div>
+    <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>17K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">70 KB</span>
+    </a>
+    
+    <a href="#" class="app-card">
+    <img src="https://i.ibb.co/krgq3gr/pack-icon.jpg" alt="death"/>
+    <h3>The Visitor</h3>
+    <h6>by BainGabut2</h6>
+     <div class="mod-label">ADDON</div> 
+     <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>12k</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">3 MB</span>
+    </a>
+          
+    <a href="#" class="app-card">   
+    <img src="https://i.postimg.cc/wM9wSwws/pack-icon.jpg" alt="duplicate"/>
+    <h3>Duplicating Items</h3> 
+    <h6>by George YT9769</h6>
+    <div class="mod-label">ADDON</div>
+    <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>2.3K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">154 KB</span>   
+    </a>
+    
+    <a href="#" class="app-card">
+    <img src="https://i.postimg.cc/Y01vqrsm/pack-icon-1.png" alt="armor"/>
+    <h3>Reforged Armors</h3>
+    <h6>by HydraTeam</h6>
+    <div class="mod-label">TEXTURE</div>  
+    <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>5.6K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">77 KB</span> 
+    </a>
+    
+   <a href="#" class="app-card">
+     <img src="https://i.postimg.cc/6qvPRn8x/20250501-190622-0000.png" 
+alt="javacombat"/>
+   <h3>Java Combat</h3>
+   <h6>by Lord Raiyon</h6>
+     <div class="mod-label">ADDON</div>
+     <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>9.5K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">322 KB</span> 
+    </a>
+    
+   <a href="#" class="app-card">
+     <img src="https://i.postimg.cc/Y0WhWTGj/pack-icon.png" 
+alt="import"/>
+   <h3>Export Worlds</h3>
+   <h6>by Yuusou</h6>
+     <div class="mod-label">TEXTURE</div>  
+     <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>2.8k</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">35 KB</span>
+    </a>
+    
+    <a href="#" class="app-card">
+     <img src="https://i.postimg.cc/fRh0xWvs/pack-icon.png" 
+alt="damage"/>
+   <h3>No Damage</h3>
+   <h6>by ???</h6>
+    <div class="mod-label">ADDON</div> 
+      <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>6.2K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">3.5 KB</span>
+    </a>
+
+    <a href="#" class="app-card">
+     <img src="https://i.ibb.co/Jjs7wMcc/638731493141426148.png" 
+alt="nightvision"/>
+   <h3>Night Vision</h3>
+    <h6>by T1M0THY</h6>
+     <div class="mod-label">ADDON</div> 
+      <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>6.8K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">41 KB</span>
+    </a>   
+   
+    <a href="#" class="app-card">
+    <img src="https://i.postimg.cc/3RjQNtkK/20250504-102030-0000.png" alt="java"/>
+    <h3>Java Saturation</h3>
+    <h6>by Lord Raiyon</h6>
+     <div class="mod-label">ADDON</div> 
+      <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>9.1K</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">29 KB</span>
+    </a>
+    
+    <a href="#" class="app-card">
+    <img src="https://i.postimg.cc/N0hZfQsy/15372010-cover-l.webp" alt="fogless"/>
+    <h3>Fogless</h3>
+    <h6>by sqdldev</h6>
+    <h6></h6>
+     <div class="mod-label">TEXTURE</div>   
+      <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>3.2k</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">29 KB</span>
+    </a>
+    
+    <a href="#" class="app-card">
+    <img src="https://i.postimg.cc/RhjgdbTP/638684534685125337.png" alt="fast"/>
+    <h3>Fast loading</h3>
+    <h6>by ???</h6>
+     <div class="mod-label">ADDON</div> 
+      <img src="https://i.postimg.cc/8PfMG7b9/download.png" alt="detail" class="detail">
+    <span>4.9k</span>
+    <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
+    <span class="span2">5.2 KB</span>
+    </a>    
+</div>
+  
+  <div id="download-popup" style="
+  display: none;
+  position: fixed !important;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  ">
+  <div style="
+    background: #1f1f2e;
+    width: 320px;
+    border-radius: 12px;
+    padding: 20px;
+    color: #e0e7ff;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+    position: relative;
+    transform: translateY(100%);
+    animation: slideUp 0.3s forwards ease-out;
+  ">
+    <button onclick="closePopup()" style="
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      color: #aaa;
+      font-size: 24px;
+      cursor: pointer;
+    ">×</button>
+    <h3 style="margin-top: 5px; color: #fff;">🔐 To unlock the download, you must complete one offer</h3>
+    
+<p style="color: #fff; font-size; 15px; font-weight: bold;">Offers may ask you to :<p>
+
+    <div style="color: #fff; text-align: left; margin: 1px 0; line-height: 1;">
+<p>📲 Install an app and open it for 30 sec<p>    
+<p>📨 Sign up with existing email<p>
+    </div>
+    <button onclick="fastDownload()" style="
+      background: linear-gradient(45deg, #00a8ff, #0066ff);;
+      border: none;                           font-weight: bold;               
+      font-family: 'Poppins', sans-serif;                                       color: white;
+      padding: 12px 0px;
+      margin-top: 5px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;" >Download Now</button>
+    
+  </div>
+
+  <style>
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</div>
+
+<script> document.addEventListener('DOMContentLoaded', function () {
+    const popup = document.getElementById('download-popup');
+    const cards = document.querySelectorAll('.app-card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    window.closePopup = function () {
+      popup.style.display = 'none';
+      document.body.style.overflow = '';
+    };
+
+    window.fastDownload = function () {
+      closePopup();
+      _Cd();
+    };
+
+    window.slowDownload = function () {
+      closePopup();
+  
+    };
+  });
+</script>
+
+<script>           document.getElementById('searchInput').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.app-card');
+
+    cards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      if (title.includes(query)) {
+        card.style.display = 'grid';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+            
+</script>
+  
+  <script>
+  (function() {
+    if (window.location.search.indexOf('m=1') !== -1) {
+      
+      let url = new URL(window.location.href);
+      url.searchParams.delete('m');     
+    
+      window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+    }
+  })();
+    
+</script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2YWLBNC0V"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P2YWLBNC0V');
+</script>
+  
+<script>  
+  (function() {
+  const ua = navigator.userAgent.toLowerCase();
+  const ref = document.referrer.toLowerCase();
+  const fb = document.getElementById('tiktok-fallback');
+  if (!fb) return;
+
+  const tikTokIdentifiers = [
+    "tiktok",
+    "musical_ly",  
+    "com.ss.android.ugc.trill",
+    "musicallygo"
+  ];
+
+  const isTikTokBrowser = tikTokIdentifiers.some(id => ua.includes(id)) || ref.includes("tiktok");
+
+  if (isTikTokBrowser) {
+    fb.style.display = 'flex';  
+  } else {
+    fb.style.display = 'none';   
+  }
+})();  
+</script>
+      
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const AppCards = document.querySelectorAll(".app-card");
+
+    AppCards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        const modName = card.querySelector("h3")?.textContent.trim() || "Unknown";
+
+        gtag('event', 'app_card_click', {
+          mod_name: modName
+          
+        });
+      });
+    });
+  });
+   
+</script>
+
+   
+</body>
+</html>
