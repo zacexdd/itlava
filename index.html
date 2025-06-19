@@ -212,37 +212,84 @@
      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
     }
     
-  .site-footer {
-    margin-top: 20px;
-    padding: 30px 15px;
-    background-color: #f3f3f3;
-    text-align: center;
-    font-size: 14px;
-    color: #333;
-  }
+  /* Hamburger Button */
+.hamburger {
+    display: none; /* Hidden by default (shown only on mobile) */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
 
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 10px;
-  }
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
 
-  .footer-links a {
-    color: #0077cc;
+/* Mobile Menu (Hidden by default) */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    z-index: 999;
+    padding-top: 60px;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav li {
+    margin: 15px 0;
+}
+
+.mobile-nav a {
     text-decoration: none;
-    font-weight: 500;
-  }
+    color: #333;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+}
 
-  .footer-links a:hover {
-    color: #ff6600;
-  }
+/* Show menu when active */
+.mobile-nav.active {
+    right: 0;
+}
 
-  /* Remove purple color for visited links */
-  .footer-links a:visited {
-    color: #0077cc;
-  }
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    /* Hide desktop menu on mobile (optional) */
+    .desktop-nav {
+        display: none;
+    }
+}
     
   </style>
   
@@ -253,7 +300,21 @@
 </head>
   
 <body>  
-     
+
+<button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+<nav class="mobile-nav" id="mobileNav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+    </ul>
+</nav>
+  
 <div id="tiktok-fallback" style="
   display: none;  
   position: fixed;
@@ -482,17 +543,7 @@ alt="nightvision"/>
     <img src="https://i.postimg.cc/0yJR3ynt/database.png" alt="mb" class="mb">
     <span class="span2">5.2 KB</span>
     </a>    
-</div>
-
-  <footer class="site-footer">
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <p>&copy; 2025 itlava. all right served.</p>
-</footer>
+</div> 
   
   <div id="download-popup" style="
   display: none;
@@ -669,6 +720,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
    
 </script>
-   
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!mobileNav.contains(e.target) && e.target !== hamburger) {
+        mobileNav.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+});
+</script>
+    
 </body>
 </html>
