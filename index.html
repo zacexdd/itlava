@@ -213,27 +213,35 @@
     }
     
   .site-footer {
-    margin-top: 50px;
-    padding: 20px;
+    margin-top: 60px;
+    padding: 30px 15px;
     background-color: #f3f3f3;
     text-align: center;
     font-size: 14px;
     color: #333;
   }
 
-  .site-footer .footer-links {
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-bottom: 10px;
   }
 
-  .site-footer .footer-links a {
+  .footer-links a {
     color: #0077cc;
     text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s;
+    font-weight: 500;
   }
 
-  .site-footer .footer-links a:hover {
+  .footer-links a:hover {
     color: #ff6600;
+  }
+
+  /* Remove purple color for visited links */
+  .footer-links a:visited {
+    color: #0077cc;
   }
     
   </style>
